@@ -1,13 +1,14 @@
 Options.Timelines.push({
   zoneRegex: /^Mist$/,
   timeline: `
-    1    "Start of test"    sync /:cactbot test/
-    6    "Blizzard III"
-    12 "Dualcast"
-    28 "Thunder III"
-    34 "Death"
-    infotext "Blizzard III" before 2 "Blizzard III soon"
-    infotext "Imminent Death" before 1 "Death"
+    0    "Start of test"    sync /:cactbot test/
+    6    "Blizzard III" sync /:cactbot sync/ window 20,20
+    10 "Dualcast"
+    15 "Thunder III"
+    20 "Death"
+    infotext "Blizzard III" before 2 "info blizzard"
+    alerttext "Dualcast" before 2 "alert dualcast"
+    alarmtext "Death" before 2 "alarm death"
   `,
 });
 
