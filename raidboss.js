@@ -62,6 +62,4 @@ Options.Triggers = [
   },
 ];
 
-Options.InfoSound = '../../resources/sounds/WeakAuras/RobotBlip.ogg';
-Options.InfoSoundVolume = 0.5;
 Options.Debug = true;
