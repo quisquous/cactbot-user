@@ -84,7 +84,7 @@ Options.Triggers = [
         id: 'O3S Spellblade Holy Info',
         regex: /1B:........:(\y{Name}):....:....:006[45]:0000:0000:0000:/,
         infoText: function(data) {
-          if (data.holyTargets[1] == data.me)
+          if (data.holyTargetsDebug[1] == data.me)
             return;
           for (var i = 0; i < 4; ++i) {
             if (data.holyTargetsDebug[i] == data.me)
