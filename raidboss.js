@@ -92,6 +92,9 @@ Options.Triggers = [
           }
         },
         condition: function(data, matches) {
+	  // Ignore library phase.
+	  if (data.phase == 3)
+	    return false;
           data.holyTargetsDebug = data.holyTargetsDebug || [];
           data.holyTargetsDebug.push(matches[1]);
           return data.holyTargetsDebug.length == 4;
