@@ -30,7 +30,7 @@ Options.Timelines.push({
 
 Options.Triggers = [
   {
-    zoneRegex: /./,
+    zoneRegex: /.*/,
     triggers: [
       {
         id: 'Provoke',
