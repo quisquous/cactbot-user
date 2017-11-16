@@ -1,18 +1,4 @@
 Options.Timelines.push({
-  zoneRegex: /^Mist$/,
-  timeline: `
-    0    "Start of test"    sync /:cactbot test/
-    6    "Blizzard III" sync /:cactbot sync/ window 20,20
-    10 "Dualcast"
-    15 "Thunder III"
-    20 "Death"
-    infotext "Blizzard III" before 2 "info blizzard"
-    alerttext "Dualcast" before 2 "alert dualcast"
-    alarmtext "Death" before 2 "alarm death"
-  `,
-});
-
-Options.Timelines.push({
   zoneRegex: /^(Deltascape V2.0 \(Savage\)|Unknown Zone \(2B8\))$/,
   timeline: `
     49.0 "(pap reprisal)"
