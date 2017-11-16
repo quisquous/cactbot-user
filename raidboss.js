@@ -26,6 +26,13 @@ Options.Triggers = [
         },
       },
       {
+        id: 'Ultimatum',
+        regex: /:(\y{Name}):1D73:Ultimatum:/,
+        infoText: function(data, matches) {
+          return 'Ultimatum: ' + matches[1];
+        },
+      },
+      {
         id: 'Shirk',
         regex: /:(\y{Name}):1D71:Shirk:/,
         infoText: function(data, matches) {
