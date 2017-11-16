@@ -1,18 +1,4 @@
-Options.Timelines.push({
-  zoneRegex: /^(Deltascape V2.0 \(Savage\)|Unknown Zone \(2B8\))$/,
-  timeline: `
-    49.0 "(pap reprisal)"
-    73.0 "(pap veng + conv + ramp)"
-    88.0 "(mat reprisal)"
-    143.0 "(mat hallow + reprisal)"
-    185.0 "(pap reprisal + ramp)"
-    243.0 "(mat reprisal)"
-    255.0 "(pap ramp + reprisal)"
-    371.0 "(pap reprisal)"
-    381.0 "(pap veng + conv + ramp)"
-    391.0 "(mat reprisal)"
-  `,
-});
+Options.Debug = true;
 
 Options.Triggers = [
   {
@@ -69,6 +55,19 @@ Options.Triggers = [
       },
     ]
   },
+  {
+    zoneRegex: /^(Deltascape V2.0 \(Savage\)|Unknown Zone \(2B8\))$/,
+    timelines: `
+      49.0 "(pap reprisal)"
+      73.0 "(pap veng + conv + ramp)"
+      88.0 "(mat reprisal)"
+      143.0 "(mat hallow + reprisal)"
+      185.0 "(pap reprisal + ramp)"
+      243.0 "(mat reprisal)"
+      255.0 "(pap ramp + reprisal)"
+      371.0 "(pap reprisal)"
+      381.0 "(pap veng + conv + ramp)"
+      391.0 "(mat reprisal)"
+    `,
+  },
 ];
-
-Options.Debug = true;
