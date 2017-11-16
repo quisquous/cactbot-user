@@ -62,35 +62,6 @@ Options.Triggers = [
       },
     ]
   },
-  {
-    zoneRegex: /(Deltascape V3.0 \(Savage\)|Unknown Zone \(2B9\))/,
-    triggers: [
-      {
-        // Supplement the o3s triggers by saying who the stack is on.
-        id: 'O3S Spellblade Holy Info',
-        regex: /1B:........:(\y{Name}):....:....:006[45]:0000:0000:0000:/,
-        infoText: function(data) {
-          if (data.holyTargetsDebug[1] == data.me)
-            return;
-          for (var i = 0; i < 4; ++i) {
-            if (data.holyTargetsDebug[i] == data.me)
-              return "others stack on " + data.holyTargetsDebug[1];
-          }
-        },
-        condition: function(data, matches) {
-          // Ignore library phase.
-          if (data.phase == 3)
-            return false;
-          data.holyTargetsDebug = data.holyTargetsDebug || [];
-          data.holyTargetsDebug.push(matches[1]);
-          return data.holyTargetsDebug.length == 4;
-        },
-        run: function(data) {
-          delete data.holyTargetsDebug;
-        }
-      },
-    ],
-  },
 ];
 
 Options.Debug = true;
