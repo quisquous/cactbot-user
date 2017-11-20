@@ -57,7 +57,7 @@ Options.Triggers = [
   },
   {
     zoneRegex: /^(Deltascape V2.0 \(Savage\)|Unknown Zone \(2B8\))$/,
-    timelines: `
+    timeline: `
       49.0 "(pap reprisal)"
       73.0 "(pap veng + conv + ramp)"
       88.0 "(mat reprisal)"
