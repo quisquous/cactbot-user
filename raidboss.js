@@ -1,4 +1,5 @@
 Options.Debug = true;
+Options.SpokenAlertsEnabled = false;
 
 Options.Triggers = [
   {
@@ -71,3 +72,30 @@ Options.Triggers = [
     `,
   },
 ];
+
+var playTTS = {
+  SpeechAlert: true,
+  TextAlert: true,
+  SoundAlert: true,
+};
+
+Options.PerTriggerOptions = {
+  'O4S2 Flood of Naught: Inside': playTTS,
+  'O4S2 Flood of Naught: Outside': playTTS,
+  'O4S2 Flood of Naught: Colors Purple Blue': playTTS,
+  'O4S2 Flood of Naught: Colors Blue Purple': playTTS,
+  'UCU Nael Quote 1': playTTS,
+  'UCU Nael Quote 2': playTTS,
+  'UCU Nael Quote 3': playTTS,
+  'UCU Nael Quote 4': playTTS,
+  'UCU Nael Quote 5': playTTS,
+  'UCU Nael Quote 6': playTTS,
+  'UCU Nael Quote 7': playTTS,
+  'UCU Nael Quote 8': playTTS,
+  'UCU Nael Quote 9': playTTS,
+  'UCU Nael Quote 10': playTTS,
+  'UCU Nael Quote 11': playTTS,
+  'UCU Nael Quote 12': playTTS,
+  'UCU Nael Quote 13': playTTS,
+  'UCU Nael Quote 14': playTTS,
+};
