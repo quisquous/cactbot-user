@@ -13,60 +13,6 @@ Options.PlayerNicks = {
 
 Options.Triggers = [
   {
-    zoneRegex: /.*/,
-    triggers: [
-      {
-        regex: /:(\y{Name}):1D6D:Provoke:/,
-        condition: function(data) { return data.role != 'tank' },
-        infoText: function(data, matches) {
-          return 'Provoke: ' + matches[1];
-        },
-      },
-      {
-        regex: /:(\y{Name}):1D73:Ultimatum:/,
-        condition: function(data) { return data.role != 'tank' },
-        infoText: function(data, matches) {
-          return 'Ultimatum: ' + matches[1];
-        },
-      },
-      {
-        regex: /:(\y{Name}):1D71:Shirk:/,
-        condition: function(data) { return data.role != 'tank' },
-        infoText: function(data, matches) {
-          return 'Shirk: ' + matches[1];
-        },
-      },
-      {
-        regex: /:(\y{Name}):2B:Holmgang:/,
-        condition: function(data) { return data.role != 'tank' },
-        infoText: function(data, matches) {
-          return 'Holmgang: ' + matches[1];
-        },
-      },
-      {
-        regex: /:(\y{Name}):1E:Hallowed Ground:/,
-        condition: function(data) { return data.role != 'tank' },
-        infoText: function(data, matches) {
-          return 'Hallowed: ' + matches[1];
-        },
-      },
-      {
-        regex: /:(\y{Name}):E36:Living Dead:/,
-        condition: function(data) { return data.role != 'tank' },
-        infoText: function(data, matches) {
-          return 'Living: ' + matches[1];
-        },
-      },
-      {
-        regex: /:(\y{Name}) gains the effect of Walking Dead/,
-        condition: function(data) { return data.role != 'tank' },
-        infoText: function(data, matches) {
-          return 'Walking: ' + matches[1];
-        },
-      },
-    ]
-  },
-  {
     zoneRegex: /^(Deltascape V2.0 \(Savage\)|Unknown Zone \(2B8\))$/,
     timeline: `
       49.0 "(pap reprisal)"
@@ -83,10 +29,16 @@ Options.Triggers = [
   },
 ];
 
+// Play tts as well as the on screen text.
 var playTTS = {
   SpeechAlert: true,
   TextAlert: true,
   SoundAlert: true,
+};
+
+// Run regardless of condition.
+var alwaysTrueCondition = {
+  Condition: function() { return true; },
 };
 
 Options.PerTriggerOptions = {
@@ -108,4 +60,11 @@ Options.PerTriggerOptions = {
   'UCU Nael Quote 12': playTTS,
   'UCU Nael Quote 13': playTTS,
   'UCU Nael Quote 14': playTTS,
+  'General Provoke': alwaysTrueCondition,
+  'General Ultimatum': alwaysTrueCondition,
+  'General Shirk': alwaysTrueCondition,
+  'General Holmgang': alwaysTrueCondition,
+  'General Hallowed': alwaysTrueCondition,
+  'General Living': alwaysTrueCondition,
+  'General Walking': alwaysTrueCondition,
 };
