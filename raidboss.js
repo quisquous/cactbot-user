@@ -1,6 +1,16 @@
 Options.Debug = true;
 Options.SpokenAlertsEnabled = false;
 
+Options.PlayerNicks = {
+  'Paprika Rika': 'Pap',
+  'Elmindreda Farshaw': 'Min',
+  'Mikoto Misaka': 'Miko',
+  'Lohpopo Lopopo': 'Loh',
+  'Ninene Nine': 'Nine',
+  'Wikiki Wiki': 'Wiki',
+  'Kinono Kino': 'Kino',
+};
+
 Options.Triggers = [
   {
     zoneRegex: /.*/,
