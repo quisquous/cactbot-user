@@ -1,5 +1,7 @@
+'use strict';
+
 console.log('git raidboss user file');
-Options.Debug = true;
+Options.Debug = false;
 Options.SpokenAlertsEnabled = false;
 
 Options.PlayerNicks = {
@@ -38,15 +40,17 @@ Options.Triggers = [
 ];
 
 // Play tts as well as the on screen text.
-var playTTS = {
+let playTTS = {
   SpeechAlert: true,
   TextAlert: true,
   SoundAlert: true,
 };
 
 // Run regardless of condition.
-var alwaysTrueCondition = {
-  Condition: function() { return true; },
+let alwaysTrueCondition = {
+  Condition: function() {
+    return true;
+  },
 };
 
 Options.PerTriggerOptions = {
