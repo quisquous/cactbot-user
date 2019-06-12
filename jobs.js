@@ -1,3 +1,3 @@
 'use strict';
 
-Options.Language = 'en';
+console.log('Language set to ' + Options.Language);

@@ -1,17 +1,23 @@
 'use strict';
 
 console.log('git raidboss user file');
-Options.Debug = false;
-Options.SpokenAlertsEnabled = false;
+Options.Debug = true;
+console.log('Language set to ' + Options.Language);
 
 Options.PlayerNicks = {
   'Paprika Rika': 'Pap',
   'Elmindreda Farshaw': 'Min',
+  'Elmindreda Far\'shaw': 'Min',
   'Mikoto Misaka': 'Miko',
   'Lohpopo Lopopo': 'Loh',
   'Ninene Nine': 'Nine',
   'Wikiki Wiki': 'Wiki',
   'Kinono Kino': 'Kino',
+  'The\'man The\'Myth': 'Zero',
+  'Sanjuro Katsuki': 'San',
+  'Alshiana Valtarios': 'Alshi',
+  'Cheesygordita Crunch': 'Cheesy',
+  'Tsukiya Tamada': 'Tsuki',
 };
 
 // /echo :Bahamut Prime:26E8: for adds
@@ -35,6 +41,83 @@ Options.Triggers = [
       'infotext "Morn Afah #3" before 8 "raw shake"',
       'infotext "Morn Afah #4" before 8 "conv, reprisal"',
       'infotext "Morn Afah #5" before 8 "shake"',
+    ],
+  },
+  {
+    zoneRegex: /^The Weapon's Refrain \(Ultimate\)$/,
+    timeline: [
+      'alarmtext "Dark IV" after 1 "USE THE BLOODY TANK LB!"',
+    ],
+  },
+  {
+    zoneRegex: /The Second Coil Of Bahamut - Turn \(2\)/,
+    triggers: [
+      {
+        id: 'T7 Voice',
+        regex: /1A:(\y{Name}) gains the effect of Cursed Voice from  for (\y{Float}) Seconds/,
+        run: function(data, matches) {
+          data.voices = data.voices || {};
+          data.voices[matches[1]] = matches[2];
+        },
+      },
+      {
+        id: 'T7 Voice Got Three',
+        regex: /1A:\y{Name} gains the effect of Cursed Voice/,
+        condition: function(data) {
+          // In case log lines get dropped wait a little and go anyway.
+          return data.voices && Object.keys(data.voices).length == 3;
+        },
+        infoText: function(data) {
+          if (!data.voices)
+            return;
+
+          // Never freeze.
+          let neverPerson = 'Paprika Rika';
+          // Always freeze first.
+          let priorityPerson = 'Ryythe Larke';
+          // Prefer not this person, unless the next best person has a short time.
+          let preferPerson = 'Elmindreda Far\'shaw';
+          let minPreferSeconds = 6;
+
+          delete data.voices[neverPerson];
+          let order = [];
+
+          if (priorityPerson in data.voices) {
+            delete data.voices[priorityPerson];
+            order.push(priorityPerson);
+          }
+
+          let preferPersonTime = data.voices[preferPerson];
+          delete data.voices[preferPerson];
+
+          let sortedVoices = Object.keys(data.voices).sort(function(a, b) {
+            return data.voices[b] - data.voices[a];
+          });
+
+          order = order.concat(sortedVoices);
+          if (preferPersonTime) {
+            let bestTime = data.voices[order[0]];
+            if (bestTime < minPreferSeconds && order[0] != priorityPerson &&
+                preferPersonTime > bestTime)
+              order.unshift(preferPerson);
+            else
+              order.push(preferPerson);
+          }
+
+          delete data.voices;
+
+          return 'Freeze: ' + order.map(data.ShortName).join(', ');
+        },
+      },
+      {
+        id: 'T7 Voice Cleanup',
+        regex: /1A:\y{Name} gains the effect of Cursed Voice/,
+        suppressSeconds: 10,
+        delaySeconds: 5,
+        run: function(data) {
+          delete data.voices;
+        },
+      },
     ],
   },
 ];
