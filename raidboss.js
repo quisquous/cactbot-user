@@ -3,6 +3,7 @@
 console.log('git raidboss user file');
 Options.Debug = true;
 console.log('Language set to ' + Options.Language);
+Options.SpokenAlertsEnabled = false;
 
 Options.PlayerNicks = {
   'Paprika Rika': 'Pap',
@@ -20,11 +21,21 @@ Options.PlayerNicks = {
   'Tsukiya Tamada': 'Tsuki',
 };
 
+// Prepend emoji to all added timeline events to make them stand out.
+function emojify(arr) {
+  let emojo = '👋';
+  let search = Regexes.Parse(/^\s*(\y{Float})\s+"\s*/);
+  for (let i = 0; i < arr.length; ++i)
+    arr[i] = arr[i].replace(search, '$1 " ' + emojo + ' ');
+  return arr;
+}
+
 // /echo :Bahamut Prime:26E8: for adds
 // /echo :Bahamut Prime:2707: for golden
 Options.Triggers = [
   {
-    zoneRegex: /(The Unending Coil Of Bahamut \(Ultimate\)|^Mist$)/,
+    zoneRegex: /The Unending Coil Of Bahamut \(Ultimate\)/,
+    filename: 'user ucob',
     timeline: [
       '1208 "(conv, shake)"', // Morn Afah #1
       '1214 "(holm)"', // Akh Morn #1
@@ -45,12 +56,14 @@ Options.Triggers = [
   },
   {
     zoneRegex: /^The Weapon's Refrain \(Ultimate\)$/,
+    filename: 'user uwu',
     timeline: [
       'alarmtext "Dark IV" after 1 "USE THE BLOODY TANK LB!"',
     ],
   },
   {
     zoneRegex: /The Second Coil Of Bahamut - Turn \(2\)/,
+    filename: 'user t7',
     triggers: [
       {
         id: 'T7 Voice',
@@ -119,6 +132,117 @@ Options.Triggers = [
         },
       },
     ],
+  },
+  {
+    zoneRegex: /^Eden's Gate: Resurrection \(Savage\)$/,
+    filename: 'user e1s',
+    timeline: function(data) {
+      if (data.job != 'DRK')
+        return;
+      return [
+        '1 "Remember Early Rampart"',
+        '5 "Reprisal"',
+        '36 "Missionary"',
+        '51 "Living"',
+        '65 "Reprisal"',
+        '130 "Missionary"',
+        '140 "Reprisal"',
+        '550 "Reprisal"',
+        '520 "Missionary"',
+        '616 "Missionary"',
+        '626 "Reprisal"',
+        '670 "Living"',
+        '723 "Reprisal"',
+        'hideall "--custom--"',
+        '612 "--custom--"',
+        'alarmtext "--custom--" before 0 "PAP HOLD YOUR BLOODY COOLDOWNS"',
+      ];
+    },
+  },
+  {
+    zoneRegex: /^Eden's Gate: Descent \(Savage\)$/,
+    filename: 'user e2s',
+    timeline: function(data) {
+      if (data.job != 'DRK')
+        return;
+      return emojify([
+        '26 "Reprisal"',
+        '29 "Missionary"',
+        '102 "Reprisal"',
+        '107 "Missionary"',
+        '221 "Reprisal"',
+        '246 "Missionary"',
+        '372 "Missionary"',
+      ]);
+    },
+  },
+  {
+    zoneRegex: /^Eden's Gate: Inundation \(Savage\)$/,
+    filename: 'user e3s',
+    timeline: function(data) {
+      if (data.job != 'DRK')
+        return;
+      return [
+        '3 "Missionary"',
+        '23 "goshu hallowed"',
+        '50 "Reprisal?"',
+        '125 "Reprisal"',
+        '145 "Missionary"',
+        '155 "Provoke"',
+        '167 "Living"',
+        '195 "Reprisal"',
+        '235 "Missionary"',
+        '310 "rampart"',
+        '312 "Reprisal"',
+        '314 "shadow wall"',
+        '337.5 "Missionary"',
+        '418 "Reprisal"',
+        '427 "Missionary"',
+        '475 "Provoke"',
+        '489 "Reprisal"',
+        '490 "Living"',
+        '513 "Missionary"',
+      ];
+    },
+  },
+  {
+    zoneRegex: /^Eden's Gate: Sepulture \(Savage\)$/,
+    filename: 'user e4s',
+    timeline: function(data) {
+      if (data.job != 'DRK')
+        return;
+      return [
+        '10 "Living"',
+        '35 "Missionary"',
+        '40 "dark mind"',
+        '50 "Reprisal"',
+        '330 "Missionary"',
+        '340 "Reprisal"',
+        '630 "Missionary"',
+        '662 "Reprisal"',
+        '715 "TBN Goshu"',
+        'alarmtext "TBN Goshu" before 5 "SAVE GOSHU"',
+        '1020 "Missionary"',
+        '1052 "rampart"',
+        '1056 "dark mind"',
+        '1056 "shadow wall"',
+        '1067 "Reprisal"',
+        '1171 "Missionary"',
+        '1179 "Reprisal"',
+        '1285 "rampart"',
+        '1292 "dark mind"',
+        '1283.5 "Missionary"',
+        '1290 "Reprisal"',
+        '1315 "provoke"',
+        '1317 "Living"',
+        '1370 "Reprisal"',
+        '1403 "shadow wall"',
+        '1410 "Missionary"',
+        '1415 "dark mind"',
+        '1433 "Reprisal"',
+        '1480 "rampart"',
+      ];
+    },
   },
 ];
 

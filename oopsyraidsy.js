@@ -9,3 +9,5 @@ Options.PlayerNicks = {
   'Wikiki Wiki': 'Wiki',
   'Kinono Kino': 'Kino',
 };
+
+Options.Debug = true;
