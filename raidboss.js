@@ -139,7 +139,7 @@ Options.Triggers = [
     timeline: function(data) {
       if (data.job != 'DRK')
         return;
-      return [
+      return emojify([
         '1 "Remember Early Rampart"',
         '5 "Reprisal"',
         '36 "Missionary"',
@@ -156,7 +156,7 @@ Options.Triggers = [
         'hideall "--custom--"',
         '612 "--custom--"',
         'alarmtext "--custom--" before 0 "PAP HOLD YOUR BLOODY COOLDOWNS"',
-      ];
+      ]);
     },
   },
   {
@@ -182,7 +182,7 @@ Options.Triggers = [
     timeline: function(data) {
       if (data.job != 'DRK')
         return;
-      return [
+      return emojify([
         '3 "Missionary"',
         '23 "goshu hallowed"',
         '50 "Reprisal?"',
@@ -202,7 +202,7 @@ Options.Triggers = [
         '489 "Reprisal"',
         '490 "Living"',
         '513 "Missionary"',
-      ];
+      ]);
     },
   },
   {
@@ -211,7 +211,7 @@ Options.Triggers = [
     timeline: function(data) {
       if (data.job != 'DRK')
         return;
-      return [
+      return emojify([
         '10 "Living"',
         '35 "Missionary"',
         '40 "dark mind"',
@@ -241,7 +241,7 @@ Options.Triggers = [
         '1415 "dark mind"',
         '1433 "Reprisal"',
         '1480 "rampart"',
-      ];
+      ]);
     },
   },
 ];
