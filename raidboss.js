@@ -1,9 +1,11 @@
 'use strict';
 
-console.log('git raidboss user file');
-Options.Debug = true;
-console.log('Language set to ' + Options.Language);
-Options.SpokenAlertsEnabled = false;
+// console.log('git raidboss user file');
+// Options.Debug = true;
+// console.log('Language set to ' + Options.Language);
+// Options.SpokenAlertsEnabled = false;
+// Options.Skin = 'lippe';
+Options.cactbotWormholeStrat = true;
 
 Options.PlayerNicks = {
   'Paprika Rika': 'Pap',
@@ -24,16 +26,67 @@ Options.PlayerNicks = {
 // Prepend emoji to all added timeline events to make them stand out.
 function emojify(arr) {
   let emojo = '👋';
-  let search = Regexes.Parse(/^\s*(\y{Float})\s+"\s*/);
+  let search = Regexes.Parse(/^\s*(\y{Float})\s+"\s*(?!-)/);
   for (let i = 0; i < arr.length; ++i)
     arr[i] = arr[i].replace(search, '$1 " ' + emojo + ' ');
   return arr;
 }
 
-// /echo :Bahamut Prime:26E8: for adds
-// /echo :Bahamut Prime:2707: for golden
+
 Options.Triggers = [
   {
+    zoneRegex: /.*/,
+    filename: 'user global',
+    triggers: [
+      {
+        id: 'Suicide Is Painless',
+        netRegex: NetRegexes.wasDefeated({ targetId: '1.*?', sourceId: '00' }),
+        infoText: function(data, matches) {
+          console.log(JSON.stringify(matches));
+          return 'TEST: ' + matches.target;
+        },
+      },
+      {
+        /* eslint-disable max-len */
+        // [6/23/2020 6:57:07 PM] Info: raidbossy: BrowserConsole: CB01|2020-06-23T18:57:12.3510000-07:00|400063E7|Nael Deus Darnus|7D8|Iron Chariot|400063E7|Nael Deus Darnus|2.20||X|Y|Z|heading|647cb90332a59100625777855ef0d638 (Source: , Line: 11)
+        // [6/23/2020 6:57:07 PM] Info: raidbossy: BrowserConsole: 20|2020-06-23T18:57:12.3510000-07:00|400063E7|Nael Deus Darnus|7D8|Iron Chariot|400063E7|Nael Deus Darnus|2.20||647cb90332a59100625777855ef0d638 (Source: , Line: 18)
+        /* eslint-enable */
+        id: 'test overlayplugin',
+        netRegex: /(?<line>^CB01.*$)/,
+        run: function(data, matches) {
+          console.log(matches.line);
+        },
+      },
+    ],
+  },
+  {
+    zoneId: ZoneId.MiddleLaNoscea,
+    triggers: [
+      {
+        id: 'Test Lang',
+        netRegex: NetRegexes.echo({ line: 'cactbot lang.*?', capture: false }),
+        infoText: function(data) {
+          console.log('override');
+          return {
+            en: 'Language2: ' + data.parserLang,
+          };
+        },
+      },
+      {
+        id: 'Test Lang',
+        netRegex: NetRegexes.echo({ line: 'cactbot lang.*?', capture: false }),
+        infoText: function(data) {
+          console.log('override3');
+          return {
+            en: 'Language3: ' + data.parserLang,
+          };
+        },
+      },
+    ],
+  },
+  {
+    // /echo :Bahamut Prime:26E8: for adds
+    // /echo :Bahamut Prime:2707: for golden
     zoneRegex: /The Unending Coil Of Bahamut \(Ultimate\)/,
     filename: 'user ucob',
     timeline: [
@@ -67,7 +120,7 @@ Options.Triggers = [
     triggers: [
       {
         id: 'T7 Voice',
-        regex: /1A:(\y{Name}) gains the effect of Cursed Voice from  for (\y{Float}) Seconds/,
+        regex: /1A:(\y{Name}) gains the effect of Cursed Voice from {2}for (\y{Float}) Seconds/,
         run: function(data, matches) {
           data.voices = data.voices || {};
           data.voices[matches[1]] = matches[2];
@@ -145,17 +198,17 @@ Options.Triggers = [
         '36 "Missionary"',
         '51 "Living"',
         '65 "Reprisal"',
-        '130 "Missionary"',
-        '140 "Reprisal"',
-        '550 "Reprisal"',
+        '139 "Missionary"',
+        '141 "Reprisal"',
         '520 "Missionary"',
+        '550 "Reprisal"',
         '616 "Missionary"',
         '626 "Reprisal"',
         '670 "Living"',
         '723 "Reprisal"',
-        'hideall "--custom--"',
-        '612 "--custom--"',
-        'alarmtext "--custom--" before 0 "PAP HOLD YOUR BLOODY COOLDOWNS"',
+        'hideall "--hold--"',
+        '612 "--hold--"',
+        'alarmtext "--hold--" before 0 "PAP HOLD YOUR BLOODY COOLDOWNS"',
       ]);
     },
   },
@@ -172,6 +225,7 @@ Options.Triggers = [
         '107 "Missionary"',
         '221 "Reprisal"',
         '246 "Missionary"',
+        '290 "Spare Reprisal"',
         '372 "Missionary"',
       ]);
     },
@@ -186,6 +240,9 @@ Options.Triggers = [
         '3 "Missionary"',
         '23 "goshu hallowed"',
         '50 "Reprisal?"',
+        'hideall "--hold--"',
+        '104 "--hold--"',
+        'alarmtext "--hold--" before 0 "PAP HOLD YOUR BLOODY COOLDOWNS"',
         '125 "Reprisal"',
         '145 "Missionary"',
         '155 "Provoke"',
@@ -255,7 +312,9 @@ let playTTS = {
 
 // Run regardless of condition.
 let alwaysTrueCondition = {
-  Condition: function() {
+  Condition: function(data, matches) {
+    if (matches.source !== data.me && !data.party.inAlliance(matches.source))
+      return false;
     return true;
   },
 };
@@ -287,3 +346,13 @@ Options.PerTriggerOptions = {
   'General Living': alwaysTrueCondition,
   'General Walking': alwaysTrueCondition,
 };
+
+Object.assign(Options.PerTriggerOptions, {
+  'Test Poke': {
+    SpeechAlert: true,
+    TTSText: function(data) {
+      console.log('boop');
+      return data.pokes;
+    },
+  },
+});

@@ -1,5 +1,6 @@
 'use strict';
 
-console.log('Language set to ' + Options.Language);
+// console.log('Language set to ' + Options.Language);
 
-Options.ShowMPTickerOutOfCombat = false;
+// Options.ShowMPTickerOutOfCombat = false;
+// Options.BigBuffShowCooldownSeconds = 10000;
