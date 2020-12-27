@@ -3,7 +3,7 @@ console.log('git raidboss user/raidboss/test.js file');
 Options.Triggers.push({
   zoneId: ZoneId.MiddleLaNoscea,
   overrideTimelineFile: true,
-  timelineFile: 'test-override.txt',
+  timelineFile: 'test-timeline.txt',
   triggers: [
     {
       id: 'Test Poke',
