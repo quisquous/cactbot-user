@@ -1,4 +1,4 @@
-'use strict';
+
 
 Options.PlayerNicks = {
   'Paprika Rika': 'Pap',

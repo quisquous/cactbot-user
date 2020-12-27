@@ -1,4 +1,4 @@
-'use strict';
+
 
 // console.log('git raidboss user file');
 // Options.Debug = true;
@@ -25,15 +25,15 @@ Options.PlayerNicks = {
 
 // Prepend emoji to all added timeline events to make them stand out.
 function emojify(arr) {
-  let emojo = '👋';
-  let search = Regexes.Parse(/^\s*(\y{Float})\s+"\s*(?!-)/);
+  const emojo = '👋';
+  const search = Regexes.Parse(/^\s*(\y{Float})\s+"\s*(?!-)/);
   for (let i = 0; i < arr.length; ++i)
     arr[i] = arr[i].replace(search, '$1 " ' + emojo + ' ');
   return arr;
 }
 
 
-Options.Triggers = [
+Options.Triggers.push(...[
   {
     zoneRegex: /.*/,
     filename: 'user global',
@@ -131,19 +131,19 @@ Options.Triggers = [
         regex: /1A:\y{Name} gains the effect of Cursed Voice/,
         condition: function(data) {
           // In case log lines get dropped wait a little and go anyway.
-          return data.voices && Object.keys(data.voices).length == 3;
+          return data.voices && Object.keys(data.voices).length === 3;
         },
         infoText: function(data) {
           if (!data.voices)
             return;
 
           // Never freeze.
-          let neverPerson = 'Paprika Rika';
+          const neverPerson = 'Paprika Rika';
           // Always freeze first.
-          let priorityPerson = 'Ryythe Larke';
+          const priorityPerson = 'Ryythe Larke';
           // Prefer not this person, unless the next best person has a short time.
-          let preferPerson = 'Elmindreda Far\'shaw';
-          let minPreferSeconds = 6;
+          const preferPerson = 'Elmindreda Far\'shaw';
+          const minPreferSeconds = 6;
 
           delete data.voices[neverPerson];
           let order = [];
@@ -153,17 +153,17 @@ Options.Triggers = [
             order.push(priorityPerson);
           }
 
-          let preferPersonTime = data.voices[preferPerson];
+          const preferPersonTime = data.voices[preferPerson];
           delete data.voices[preferPerson];
 
-          let sortedVoices = Object.keys(data.voices).sort(function(a, b) {
+          const sortedVoices = Object.keys(data.voices).sort((a, b) => {
             return data.voices[b] - data.voices[a];
           });
 
           order = order.concat(sortedVoices);
           if (preferPersonTime) {
-            let bestTime = data.voices[order[0]];
-            if (bestTime < minPreferSeconds && order[0] != priorityPerson &&
+            const bestTime = data.voices[order[0]];
+            if (bestTime < minPreferSeconds && order[0] !== priorityPerson &&
                 preferPersonTime > bestTime)
               order.unshift(preferPerson);
             else
@@ -190,7 +190,7 @@ Options.Triggers = [
     zoneRegex: /^Eden's Gate: Resurrection \(Savage\)$/,
     filename: 'user e1s',
     timeline: function(data) {
-      if (data.job != 'DRK')
+      if (data.job !== 'DRK')
         return;
       return emojify([
         '1 "Remember Early Rampart"',
@@ -216,7 +216,7 @@ Options.Triggers = [
     zoneRegex: /^Eden's Gate: Descent \(Savage\)$/,
     filename: 'user e2s',
     timeline: function(data) {
-      if (data.job != 'DRK')
+      if (data.job !== 'DRK')
         return;
       return emojify([
         '26 "Reprisal"',
@@ -234,7 +234,7 @@ Options.Triggers = [
     zoneRegex: /^Eden's Gate: Inundation \(Savage\)$/,
     filename: 'user e3s',
     timeline: function(data) {
-      if (data.job != 'DRK')
+      if (data.job !== 'DRK')
         return;
       return emojify([
         '3 "Missionary"',
@@ -266,7 +266,7 @@ Options.Triggers = [
     zoneRegex: /^Eden's Gate: Sepulture \(Savage\)$/,
     filename: 'user e4s',
     timeline: function(data) {
-      if (data.job != 'DRK')
+      if (data.job !== 'DRK')
         return;
       return emojify([
         '10 "Living"',
@@ -301,17 +301,17 @@ Options.Triggers = [
       ]);
     },
   },
-];
+]);
 
 // Play tts as well as the on screen text.
-let playTTS = {
+const playTTS = {
   SpeechAlert: true,
   TextAlert: true,
   SoundAlert: true,
 };
 
 // Run regardless of condition.
-let alwaysTrueCondition = {
+const alwaysTrueCondition = {
   Condition: function(data, matches) {
     if (matches.source !== data.me && !data.party.inAlliance(matches.source))
       return false;
@@ -347,6 +347,7 @@ Options.PerTriggerOptions = {
   'General Walking': alwaysTrueCondition,
 };
 
+
 Object.assign(Options.PerTriggerOptions, {
   'Test Poke': {
     SpeechAlert: true,
@@ -356,3 +357,30 @@ Object.assign(Options.PerTriggerOptions, {
     },
   },
 });
+
+// Here's an example of a adding a custom regen trigger.
+// It reminds you to use regen again when you are in Sastasha (unsynced).
+Options.Triggers.push({
+  // The zone this should apply to.
+  // This should match the zoneId in the triggers file.
+  zoneId: ZoneId.Sastasha,
+  triggers: [
+    // A more complicated regen trigger.
+    {
+      // This is a made up id.
+      id: 'User Example Regen',
+      // This will match log lines from ACT that look like this:
+      // "Nacho Queen gains the effect of Regen from Taco Cat for 21.00 Seconds."
+      regex: Regexes.gainsEffect({ effect: 'Regen' }),
+      delaySeconds: function(data, matches) {
+        // Wait the amount of seconds regen lasts before reminding you to
+        // reapply it.  This is not smart enough to figure out if you
+        // cast it twice, and is left as an exercise for the reader to
+        // figure out how to do so via storing variables on `data`.
+        return data.ParseLocaleFloat(matches.duration);
+      },
+      alertText: 'Regen',
+    },
+  ],
+});
+
