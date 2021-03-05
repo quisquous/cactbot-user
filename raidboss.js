@@ -21,6 +21,7 @@ Options.PlayerNicks = {
   'Alshiana Valtarios': 'Alshi',
   'Cheesygordita Crunch': 'Cheesy',
   'Tsukiya Tamada': 'Tsuki',
+  'Women\'s Champion': 'Kev',
 };
 
 // Prepend emoji to all added timeline events to make them stand out.
@@ -31,7 +32,6 @@ function emojify(arr) {
     arr[i] = arr[i].replace(search, '$1 " ' + emojo + ' ');
   return arr;
 }
-
 
 Options.Triggers.push(...[
   {
@@ -65,21 +65,25 @@ Options.Triggers.push(...[
       {
         id: 'Test Lang',
         netRegex: NetRegexes.echo({ line: 'cactbot lang.*?', capture: false }),
-        infoText: function(data) {
-          console.log('override');
-          return {
-            en: 'Language2: ' + data.parserLang,
-          };
+        infoText: (data, _, output) => {
+          return output.text({ parserLang: data.parserLang });
+        },
+        outputStrings: {
+          text: {
+            en: 'Language2: ${parserLang}',
+          },
         },
       },
       {
         id: 'Test Lang',
-        netRegex: NetRegexes.echo({ line: 'cactbot lang.*?', capture: false }),
-        infoText: function(data) {
-          console.log('override3');
-          return {
-            en: 'Language3: ' + data.parserLang,
-          };
+        regex: Regexes.echo({ line: 'boop.*?', capture: false }),
+        infoText: (data, _, output) => {
+          return output.text({ parserLang: data.parserLang });
+        },
+        outputStrings: {
+          text: {
+            en: 'Language3: ${parserLang}',
+          },
         },
       },
     ],
@@ -115,7 +119,9 @@ Options.Triggers.push(...[
     ],
   },
   {
-    zoneRegex: /The Second Coil Of Bahamut - Turn \(2\)/,
+    zoneRegex: {
+      en: /The Second Coil Of Bahamut - Turn \(2\)/,
+    },
     filename: 'user t7',
     triggers: [
       {
