@@ -42,14 +42,15 @@ Options.Triggers.push({
   triggers: [
     {
       id: 'E11S Prismatic Deception Collection',
-      // There are three of these, and these are the ones raising their guns.
       netRegex: NetRegexes.startsUsing({ source: 'Fatebreaker\'s Image', id: '56A5' }),
       netRegexDe: NetRegexes.startsUsing({ source: 'Abbild Des Fusionierten Ascians', id: '56A5' }),
       netRegexFr: NetRegexes.startsUsing({ source: 'Double Du Sabreur De Destins', id: '56A5' }),
       netRegexJa: NetRegexes.startsUsing({ source: 'フェイトブレイカーの幻影', id: '56A5' }),
       run: (data, matches) => {
         data.prismaticImageIds = data.prismaticImageIds || [];
-        data.prismaticImageIds.push(parseInt(matches.sourceId, 16));
+        // The three clones actually doing the casting here are all positioned in garbage locations.
+        // However, there are three clones with id+1 that are all in the right spot.
+        data.prismaticImageIds.push(parseInt(matches.sourceId, 16) + 1);
         console.log(`e11s prismatic: ${JSON.stringify(matches)}, ${JSON.stringify(data.prismaticImageIds)}`);
       },
     },
@@ -89,7 +90,8 @@ Options.Triggers.push({
 
         const outputKey = calculatePrismaticSafeZone(data.images);
         console.error('e11s prismatic: ${outputKey}');
-        return output[outputKey]();
+        if (outputKey)
+          return output[outputKey]();
       },
       outputStrings: {
         dirNS: 'Go N or S',
