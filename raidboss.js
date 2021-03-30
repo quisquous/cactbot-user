@@ -40,6 +40,7 @@ Options.Triggers.push(...[
     triggers: [
       {
         id: 'Suicide Is Painless',
+        disabled: true,
         netRegex: NetRegexes.wasDefeated({ targetId: '1.*?', sourceId: '00' }),
         infoText: function(data, matches) {
           console.log(JSON.stringify(matches));
@@ -52,9 +53,23 @@ Options.Triggers.push(...[
         // [6/23/2020 6:57:07 PM] Info: raidbossy: BrowserConsole: 20|2020-06-23T18:57:12.3510000-07:00|400063E7|Nael Deus Darnus|7D8|Iron Chariot|400063E7|Nael Deus Darnus|2.20||647cb90332a59100625777855ef0d638 (Source: , Line: 18)
         /* eslint-enable */
         id: 'test overlayplugin',
+        disabled: true,
         netRegex: /(?<line>^CB01.*$)/,
         run: function(data, matches) {
           console.log(matches.line);
+        },
+      },
+      {
+        id: 'VFX Funtimes',
+        // eslint-disable-next-line max-len
+        // 252|2021-03-20T11:19:04.9210000-07:00|00000038|400005F5|10686258|00000003|00C20014|0B1F0000|60563C98|00000000|E0000015|00000808|000000E1|E0000000|00000000|00000000||c0d981f91816e317d4e05a734b44ab75
+        netRegex: NetRegexes.gainsEffect({ effectId: '808' }),
+        disabled: true,
+        infoText: (data, matches) => `(${matches.target}: ${matches.count})`,
+        sound: null,
+        tts: null,
+        run: (data, matches) => {
+          console.log(`(${matches.target}: ${matches.count})`);
         },
       },
     ],
