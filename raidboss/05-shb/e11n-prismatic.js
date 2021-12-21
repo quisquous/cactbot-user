@@ -3,7 +3,9 @@ Options.Triggers.push({
   triggers: [
     {
       id: 'E11N Prismatic Collect',
-      netRegex: NetRegexes.statusEffectExplicit({ target: 'Fatebreaker\'s Image', data3: '010655' }),
+      netRegex: NetRegexes.statusEffectExplicit(
+        { target: 'Fatebreaker\'s Image', data3: '010655' },
+      ),
       run: (data, matches) => {
         data.clones = data.clones || {};
         data.clones[matches.targetId] = matches.heading;

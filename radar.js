@@ -1,5 +1,3 @@
-
-
 /*
 // Monsters located out of this range will be hidden in the overlay and 0 means
 // never hide monsters. Note that you have to detect the monster first, which

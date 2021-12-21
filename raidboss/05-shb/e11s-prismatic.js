@@ -51,7 +51,9 @@ Options.Triggers.push({
         // The three clones actually doing the casting here are all positioned in garbage locations.
         // However, there are three clones with id+1 that are all in the right spot.
         data.prismaticImageIds.push(parseInt(matches.sourceId, 16) + 1);
-        console.log(`e11s prismatic: ${JSON.stringify(matches)}, ${JSON.stringify(data.prismaticImageIds)}`);
+        console.log(
+          `e11s prismatic: ${JSON.stringify(matches)}, ${JSON.stringify(data.prismaticImageIds)}`,
+        );
       },
     },
     {

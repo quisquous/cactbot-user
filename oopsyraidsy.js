@@ -1,4 +1,3 @@
-
 Options.PlayerNicks = {
   'Paprika Rika': 'Pap',
   'Elmindreda Farshaw': 'Min',

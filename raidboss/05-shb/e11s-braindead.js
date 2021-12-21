@@ -82,7 +82,7 @@ Options.Triggers.push({
         const portal0 = posToDirNumber(data.portals[0]);
         const portal1 = posToDirNumber(data.portals[1]);
         // Find the average of the two portals in mod 8 space.
-        let safeDir = Math.floor(((portal0 + portal1) / 2)) % 8;
+        let safeDir = Math.floor((portal0 + portal1) / 2) % 8;
         // edge case for averaging.
         if (Math.min(portal0, portal1) === 0 && Math.max(portal0, portal1) === 6)
           safeDir = 7;
