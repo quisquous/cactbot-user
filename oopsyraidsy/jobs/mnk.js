@@ -20,6 +20,7 @@ Options.Triggers.push({
         return {
           type: 'damage',
           blame: matches.source,
+          reportId: matches.sourceId,
           text: {
             en: `${matches.ability} (positional)`,
           },
