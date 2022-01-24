@@ -26,7 +26,7 @@ Options.PlayerNicks = {
 // Prepend emoji to all added timeline events to make them stand out.
 function emojify(arr) {
   const emojo = '👋';
-  const search = Regexes.Parse(/^\s*(\y{Float})\s+"\s*(?!-)/);
+  const search = Regexes.parse(/^\s*(\y{Float})\s+"\s*(?!-)/);
   for (let i = 0; i < arr.length; ++i)
     arr[i] = arr[i].replace(search, '$1 " ' + emojo + ' ');
   return arr;
