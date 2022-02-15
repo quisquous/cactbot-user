@@ -21,6 +21,7 @@ Options.PlayerNicks = {
   'Tsukiya Tamada': 'Tsuki',
   'Women\'s Champion': 'Kev',
   'Fire Five': 'Kev',
+  'Skill Issue': 'Kev',
 };
 
 // Prepend emoji to all added timeline events to make them stand out.

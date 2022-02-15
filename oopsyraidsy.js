@@ -13,6 +13,8 @@ Options.PlayerNicks = {
   'Cheesygordita Crunch': 'Cheesy',
   'Tsukiya Tamada': 'Tsuki',
   'Women\'s Champion': 'Kev',
+  'Fire Five': 'Kev',
+  'Skill Issue': 'Kev',
 };
 
 Options.Debug = true;
