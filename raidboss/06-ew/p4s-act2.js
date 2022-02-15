@@ -1,5 +1,5 @@
 Options.Triggers.push({
-  zoneId: ZoneId.EdensPromiseAnamorphosis,
+  zoneId: ZoneId.AsphodelosTheFourthCircleSavage,
   triggers: [
     {
       id: 'P4S Act 2 Fire Healer',
