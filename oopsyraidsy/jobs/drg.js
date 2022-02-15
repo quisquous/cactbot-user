@@ -11,7 +11,7 @@ Options.Triggers.push({
           // 5th Combo
           'DE4': /^[AD]720...$/,
           // Chaotic Spring
-          '64AC': /^40720...$/,
+          '64AC': /^42720...$/,
         };
 
         if (!correctFlags[matches.id])
