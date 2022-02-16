@@ -164,7 +164,7 @@ Options.Triggers.push({
       netRegex: NetRegexes.tether({ id: '00A[CD]', source: 'Hesperos' }),
       condition: (data) => data.act === '4',
       delaySeconds: 8,
-      durationSeconds: 10,
+      durationSeconds: 15,
       suppressSeconds: 9999,
       promise: async (data) => {
         if (!data.actFourTethers) {
