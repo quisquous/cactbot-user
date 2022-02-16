@@ -6,8 +6,9 @@ Options.Triggers.push({
       type: 'Tether',
       netRegex: NetRegexes.tether({ id: '00AC' }),
       condition: (data) => data.act === '2',
+      durationSeconds: 6,
       infoText: (data, matches, output) => {
-        const id = data.actTwoHeadMarkers[matches.source] ?? data.actTwoHeadMarkers[matches.target];
+        const id = data.actHeadmarkers[matches.source] ?? data.actHeadmarkers[matches.target];
         const fireId = '012F';
         if (id !== fireId)
           return;
