@@ -9,7 +9,7 @@ const matchesToDir = (m, data) => {
   }
 
   const x = thorn.PosX - centerX;
-  const y =thorn.PosY - centerY;
+  const y = thorn.PosY - centerY;
   // Dirs: N = 0, NE = 1, ..., NW = 7
   return Math.round(4 - 4 * Math.atan2(x, y) / Math.PI) % 8;
 };
@@ -37,6 +37,7 @@ Options.Triggers.push({
       netRegexFr: NetRegexes.tether({ id: '00A[CD]', source: 'Hespéros' }),
       netRegexJa: NetRegexes.tether({ id: '00A[CD]', source: 'ヘスペロス' }),
       condition: (data, matches) => data.act === '4' && matches.target === data.me,
+      durationSeconds: (data, matches) => data.actHeadmarkers[matches.target] === '012D' ? 12 : 9,
       suppressSeconds: 9999,
       promise: async (data, matches) => {
         const result = await callOverlayHandler({
@@ -162,7 +163,8 @@ Options.Triggers.push({
       type: 'Tether',
       netRegex: NetRegexes.tether({ id: '00A[CD]', source: 'Hesperos' }),
       condition: (data) => data.act === '4',
-      delaySeconds: 0.5,
+      delaySeconds: 8,
+      durationSeconds: 10,
       suppressSeconds: 9999,
       promise: async (data) => {
         if (!data.actFourTethers) {
