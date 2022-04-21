@@ -97,6 +97,19 @@ Options.Triggers.push({
       sound: 'Long',
     },
     {
+      id: 'Train Hershy Kist',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Hershy Kist(?:Faerie)?',
+        line: [
+          'Next stop!.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
       id: 'Train Scavell Tane',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
@@ -130,6 +143,73 @@ Options.Triggers.push({
         name: 'Yayo Ouuh',
         line: [
           '.*dorable target in need of hard patting.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Mekeh\'zi Mhuqopi',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Mekeh\'zi Mhuqopi',
+        line: [
+          'Hunt Train FIRST STOP.*',
+          'Hunt Train NEXT STOP.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Sun Bun',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Sun Bun',
+        line: [
+          '.*Train:.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Over Haul',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Over Haul',
+        line: [
+          'Death looms over our next.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train John Choco',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'John Choco',
+        line: [
+          '.*Hunt Train going to.*',
+          '.*Hunt Train Last.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Tet Sisma',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Tet Sisma',
+        line: [
+          'This thing\'s still alive.*',
         ],
         code: shoutCode,
         capture: false,
