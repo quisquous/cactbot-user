@@ -7,11 +7,11 @@ Options.Triggers.push({
       mistake: (data, matches) => {
         const correctFlags = {
           // 4th Combo
-          'DE2': /^[AD]720...$/,
+          'DE2': /^[AD]72....$/,
           // 5th Combo
-          'DE4': /^[AD]720...$/,
+          'DE4': /^[AD]72....$/,
           // Chaotic Spring
-          '64AC': /^42720...$/,
+          '64AC': /^4272....$/,
         };
 
         if (!correctFlags[matches.id])

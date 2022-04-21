@@ -7,9 +7,9 @@ Options.Triggers.push({
       mistake: (data, matches) => {
         const correctFlags = {
           // gallows
-          '5F3F': /^[BD]710...$/,
+          '5F3F': /^[BD]71....$/,
           //  gibbet
-          '5F3E': /^[BD]710...$/,
+          '5F3E': /^[BD]71....$/,
         };
 
         if (!correctFlags[matches.id])

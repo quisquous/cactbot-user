@@ -7,9 +7,9 @@ Options.Triggers.push({
       mistake: (data, matches) => {
         const correctFlags = {
           // snap punch
-          '38': /^13730...$/,
+          '38': /^1373....$/,
           //  demolish
-          '42': /^2E730...$/,
+          '42': /^2E73....$/,
         };
 
         if (!correctFlags[matches.id])

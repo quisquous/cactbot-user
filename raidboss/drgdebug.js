@@ -4,8 +4,7 @@ Options.Triggers.push({
     {
       id: 'Dragoon Debug Flags',
       netRegex: NetRegexes.abilityFull({ target: 'Striking Dummy' }),
-      condition: (data, matches) =>
-        matches.source === data.me && data.job === 'DRG' && matches.id !== '07',
+      condition: (data, matches) => matches.source === data.me && matches.id !== '07',
       infoText: (data, matches) => `${matches.ability}: ${matches.flags}`,
     },
   ],
