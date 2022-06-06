@@ -210,6 +210,33 @@ Options.Triggers.push({
         name: 'Tet Sisma',
         line: [
           'This thing\'s still alive.*',
+          'It\'s been fun, but this is the last one.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Airenlei Saerel',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Airenlei Saerel(?:Siren)?',
+        line: [
+          '.*Choo choo! Next stop.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Bear Esteria',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Bear Esteria',
+      line: [
+          'Next Hunt Mark:.*',
         ],
         code: shoutCode,
         capture: false,
