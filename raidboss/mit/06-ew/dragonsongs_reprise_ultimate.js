@@ -40,16 +40,17 @@ Options.Triggers.push({
       3655.9: ['tbn'],
       // cauterize
       3668.4: ['shadow wall', 'rampart', 'oblation'],
+      // TODO: adjust these timings for Akh Morn duration
       // AM1
-      935.1: ['living dead', 'reprisal'],
+      4057.0: ['living dead', 'reprisal'],
       // Giga1
-      962.0: ['missionary'],
+      4083.9: ['missionary'],
       // AM2
-      1013.7: ['shadow wall', 'rampart', 'dark mind', 'reprisal'],
+      4135.7: ['shadow wall', 'rampart', 'dark mind', 'reprisal'],
       // Giga2
-      1040.7: [],
+      4162.6: [],
       // AM3
-      1093.6: ['rampart', 'dark mind', 'reprisal', 'missionary'],
+      4125.5: ['rampart', 'dark mind', 'reprisal', 'missionary'],
     });
   },
 });
