@@ -90,6 +90,7 @@ Options.Triggers.push({
         name: 'Izana Zephyr(?:Midgardsormr)?',
         line: [
           '.*RELAY.*Hunt Found.*',
+          '.*Rank \\[.*',
         ],
         code: shoutCode,
         capture: false,
@@ -235,8 +236,21 @@ Options.Triggers.push({
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
         name: 'Bear Esteria',
-      line: [
+        line: [
           'Next Hunt Mark:.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Babby Josuke',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Babby Josuke',
+        line: [
+          'Surely nothing bad is.*',
         ],
         code: shoutCode,
         capture: false,
