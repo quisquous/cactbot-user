@@ -15,6 +15,9 @@ Options.PlayerNicks = {
   'Women\'s Champion': 'Kev',
   'Fire Five': 'Kev',
   'Skill Issue': 'Kev',
+  'Shisui Miwa': 'Derp',
+  'Goshu Tsukinoe': 'goshu',
+  'Goshu Banhi': 'goshu',
 };
 
 Options.Debug = true;

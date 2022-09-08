@@ -22,6 +22,9 @@ Options.PlayerNicks = {
   'Women\'s Champion': 'Kev',
   'Fire Five': 'Kev',
   'Skill Issue': 'Kev',
+  'Shisui Miwa': 'Derp',
+  'Goshu Tsukinoe': 'goshu',
+  'Goshu Banhi': 'goshu',
 };
 
 // Prepend emoji to all added timeline events to make them stand out.

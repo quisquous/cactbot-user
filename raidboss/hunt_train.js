@@ -64,6 +64,7 @@ Options.Triggers.push({
         line: [
           'the scoundrel,.*',
           'continues.*',
+          'will this tactless mob.*',
         ],
         code: shoutCode,
         capture: false,
@@ -222,7 +223,7 @@ Options.Triggers.push({
       id: 'Train Airenlei Saerel',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
-        name: 'Airenlei Saerel(?:Siren)?',
+        name: 'Airenlei Saerel(?:Siren|Sargatanas)?',
         line: [
           '.*Choo choo! Next stop.*',
         ],
@@ -251,6 +252,19 @@ Options.Triggers.push({
         name: 'Babby Josuke',
         line: [
           'Surely nothing bad is.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Osterby Aster',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Osterby Aster(?:Faerie)?',
+        line: [
+          'The train is going here, meow.*',
         ],
         code: shoutCode,
         capture: false,
