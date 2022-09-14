@@ -47,10 +47,10 @@ Options.Triggers.push({
 
         // Huge credit to Aya for this.  Also note `209` is the purple swirl.
         const ids = {
-          fireThenIce: '1DC',
-          iceThenFire: '1DE',
-          stackThenSpread: '1E0',
-          spreadThenStack: '1E2',
+          fireThenIce: '1DD',
+          iceThenFire: '1DF',
+          stackThenSpread: '1E1',
+          spreadThenStack: '1E3',
         };
 
         // The first time through, use the "bait" version to avoid people running off
