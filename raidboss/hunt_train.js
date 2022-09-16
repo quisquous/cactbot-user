@@ -152,6 +152,20 @@ Options.Triggers.push({
       sound: 'Long',
     },
     {
+      id: 'Train Melisandre Stormclaw',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Melisandre Stormclaw',
+        line: [
+          'Hunt train next stop:.*',
+          'Hunt train last stop.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
       id: 'Train Mekeh\'zi Mhuqopi',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
