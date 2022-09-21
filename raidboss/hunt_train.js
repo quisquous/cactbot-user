@@ -247,6 +247,45 @@ Options.Triggers.push({
       sound: 'Long',
     },
     {
+      id: 'Train Ray Leonhart',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Ray Leonhart(?:Midgardsormr)?',
+        line: [
+          '.*A RANK FOUND at.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Argo Vecti',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Argo Vecti(?:Gilgamesh)?',
+        line: [
+          '.*Rank.*spotted at.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Yuki Yozora',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Yuki Yozora(?:Faerie)?',
+        line: [
+          '.*Drippy Train next stop.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
       id: 'Train Bear Esteria',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
