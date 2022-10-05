@@ -247,6 +247,45 @@ Options.Triggers.push({
       sound: 'Long',
     },
     {
+      id: 'Train Okii Dokii',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Okii Dokii(?:Sargatanas)?',
+        line: [
+          'Next stop ->.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Summer Nights',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Summer Nights(?:Midgardsormr)?',
+        line: [
+          'Next Stop -.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Zel Cheres',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Zel Cheres(?:Cactuar)?',
+        line: [
+          'next stop -->.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
       id: 'Train Ray Leonhart',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
@@ -318,6 +357,32 @@ Options.Triggers.push({
         name: 'Osterby Aster(?:Faerie)?',
         line: [
           'The train is going here, meow.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Lulupi Lupi',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Lulupi Lupi(?:Faerie)?',
+        line: [
+          '.*Choo Choo.*(?:Calling all besties|FINAL STOP).*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Iveldar Zheurial',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Iveldar Zheurial',
+        line: [
+          'Next mark ->.*',
         ],
         code: shoutCode,
         capture: false,
