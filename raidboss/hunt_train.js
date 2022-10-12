@@ -65,6 +65,7 @@ Options.Triggers.push({
           'the scoundrel,.*',
           'continues.*',
           'will this tactless mob.*',
+          'nice A rank ya got there.*'
         ],
         code: shoutCode,
         capture: false,
@@ -234,12 +235,26 @@ Options.Triggers.push({
       sound: 'Long',
     },
     {
+      id: 'Train Nefial Flauros',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Nefial Flauros(?:Faerie)?',
+        line: [
+          '.*Next Mark at.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
       id: 'Train Airenlei Saerel',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
         name: 'Airenlei Saerel(?:Siren|Sargatanas)?',
         line: [
           '.*Choo choo! Next stop.*',
+          '.*Train go Choo Choo!.*'
         ],
         code: shoutCode,
         capture: false,
@@ -266,6 +281,19 @@ Options.Triggers.push({
         name: 'Summer Nights(?:Midgardsormr)?',
         line: [
           'Next Stop -.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Lunae Goetia',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Lunae Goetia(?:Jenova)?',
+        line: [
+          '.*Good hunter, our next mark can be found.*',
         ],
         code: shoutCode,
         capture: false,
