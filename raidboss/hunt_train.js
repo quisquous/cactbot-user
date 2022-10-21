@@ -262,12 +262,40 @@ Options.Triggers.push({
       sound: 'Long',
     },
     {
+      id: 'Train Emi Azayaka',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Emi Azayaka(?:Siren)?',
+        line: [
+          // This train is now leaving the station! First stop: Ultima Thule ( 15.9  , 26.0 )
+          'This train is now leaving the station.*',
+          'Choo choo! Next stop:.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
       id: 'Train Okii Dokii',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
         name: 'Okii Dokii(?:Sargatanas)?',
         line: [
           'Next stop ->.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Headpats Please',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Headpats Please(?:Sargatanas)?',
+        line: [
+          'Next stop.*',
         ],
         code: shoutCode,
         capture: false,
@@ -307,6 +335,20 @@ Options.Triggers.push({
         name: 'Zel Cheres(?:Cactuar)?',
         line: [
           'next stop -->.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Pand Cake',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Pand Cake(?:Cactuar)?',
+        line: [
+          '.*Next Stop.*',
+          '.*Train final stop.*',
         ],
         code: shoutCode,
         capture: false,
