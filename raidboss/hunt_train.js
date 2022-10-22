@@ -329,6 +329,20 @@ Options.Triggers.push({
       sound: 'Long',
     },
     {
+      id: 'Train Kasper Ghost',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Kasper Ghost(?:Cactuar)?',
+        line: [
+          '.*Next stop.*',
+          'Hunt Train Final Mark',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
       id: 'Train Zel Cheres',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
