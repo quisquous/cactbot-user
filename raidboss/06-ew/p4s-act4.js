@@ -206,7 +206,7 @@ Options.Triggers.push({
           return;
         }
 
-        const isCardinal = (firstDir % 2 === 0);
+        const isCardinal = firstDir % 2 === 0;
 
         const dirToName = {};
         for (const tether of tethers) {

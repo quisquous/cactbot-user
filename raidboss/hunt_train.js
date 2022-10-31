@@ -65,7 +65,7 @@ Options.Triggers.push({
           'the scoundrel,.*',
           'continues.*',
           'will this tactless mob.*',
-          'nice A rank ya got there.*'
+          'nice A rank ya got there.*',
         ],
         code: shoutCode,
         capture: false,
@@ -254,7 +254,7 @@ Options.Triggers.push({
         name: 'Airenlei Saerel(?:Siren|Sargatanas)?',
         line: [
           '.*Choo choo! Next stop.*',
-          '.*Train go Choo Choo!.*'
+          '.*Train go Choo Choo!.*',
         ],
         code: shoutCode,
         capture: false,
@@ -270,6 +270,19 @@ Options.Triggers.push({
           // This train is now leaving the station! First stop: Ultima Thule ( 15.9  , 26.0 )
           'This train is now leaving the station.*',
           'Choo choo! Next stop:.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Vashet Saicere',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Vashet Saicere(?:Siren)?',
+        line: [
+          '.*Next stop.*',
         ],
         code: shoutCode,
         capture: false,
@@ -322,6 +335,19 @@ Options.Triggers.push({
         name: 'Lunae Goetia(?:Jenova)?',
         line: [
           '.*Good hunter, our next mark can be found.*',
+        ],
+        code: shoutCode,
+        capture: false,
+      }),
+      sound: 'Long',
+    },
+    {
+      id: 'Train Corri Kazuto',
+      type: 'GameLog',
+      netRegex: NetRegexes.gameLog({
+        name: 'Corri Kazuto(?:Jenova)?',
+        line: [
+          'Next.*',
         ],
         code: shoutCode,
         capture: false,
