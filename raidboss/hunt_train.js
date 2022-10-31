@@ -15,489 +15,291 @@ const huntZones = [
 
 const shoutCode = '000B';
 
+const conductors = [
+  {
+    name: 'Navi Mae',
+    server: 'Jenova',
+    line: [
+      'SPIRIT TR.*LAG DEPARTING.*',
+    ],
+  },
+  {
+    name: 'Specter Saruu',
+    server: 'Jenova',
+    line: [
+      'Choo Choo! Next stop.*',
+      '.*Train is coming to its last stop.*',
+    ],
+  },
+  {
+    name: 'Lucienne Whitebloom',
+    server: 'Jenova',
+    line: [
+      'Time to visit our friend at .*',
+    ],
+  },
+  {
+    name: 'Ouija Wanders',
+    server: 'Jenova',
+    line: [
+      'the scoundrel,.*',
+      'continues.*',
+      'will this tactless mob.*',
+      'nice A rank ya got there.*',
+    ],
+  },
+  {
+    name: 'Aven Tilsaren',
+    server: 'Jenova',
+    line: [
+      'Next mark spotted!.*',
+    ],
+  },
+  {
+    name: 'Izana Zephyr',
+    server: 'Midgardsormr',
+    line: [
+      '.*RELAY.*Hunt Found.*',
+      '.*Rank \\[.*',
+    ],
+  },
+  {
+    name: 'Hershy Kist',
+    server: 'Faerie',
+    line: [
+      'Next stop!.*',
+    ],
+  },
+  {
+    name: 'Scavell Tane',
+    server: 'Jenova',
+    line: [
+      'Next Train stop.*',
+    ],
+  },
+  {
+    name: 'Kiona Maraguld',
+    server: 'Jenova',
+    line: [
+      'Hunt train next stop.*',
+      'Next mark spotted!.*',
+    ],
+  },
+  {
+    name: 'Yayo Ouuh',
+    server: 'Jenova',
+    line: [
+      '.*dorable target in need of hard patting.*',
+    ],
+  },
+  {
+    name: 'Melisandre Stormclaw',
+    server: 'Jenova',
+    line: [
+      'Hunt train next stop:.*',
+      'Hunt train last stop.*',
+    ],
+  },
+  {
+    name: 'Mekeh\'zi Mhuqopi',
+    server: 'Jenova',
+    line: [
+      'Hunt Train FIRST STOP.*',
+      'Hunt Train NEXT STOP.*',
+    ],
+  },
+  {
+    name: 'Sun Bun',
+    server: 'Jenova',
+    line: [
+      '.*Train:.*',
+    ],
+  },
+  {
+    name: 'Over Haul',
+    server: 'Jenova',
+    line: [
+      'Death looms over our next.*',
+    ],
+  },
+  {
+    name: 'John Choco',
+    server: 'Jenova',
+    line: [
+      '.*Hunt Train going to.*',
+      '.*Hunt Train Last.*',
+    ],
+  },
+  {
+    name: 'Tet Sisma',
+    server: 'Jenova',
+    line: [
+      'This thing\'s still alive.*',
+      'It\'s been fun, but this is the last one.*',
+    ],
+  },
+  {
+    name: 'Nefial Flauros',
+    server: 'Faerie',
+    line: [
+      '.*Next Mark at.*',
+    ],
+  },
+  {
+    name: 'Airenlei Saerel',
+    server: ['Siren', 'Sargatanas', 'Cactuar', 'Midgardsormr'],
+    line: [
+      '.*Choo choo! Next stop.*',
+      '.*Train go Choo Choo!.*',
+    ],
+  },
+  {
+    name: 'Emi Azayaka',
+    server: 'Siren',
+    line: [
+      'This train is now leaving the station.*',
+      'Choo choo! Next stop:.*',
+    ],
+  },
+  {
+    name: 'Vashet Saicere',
+    server: 'Siren',
+    line: [
+      '.*Next stop.*',
+    ],
+  },
+  {
+    name: 'Okii Dokii',
+    server: 'Sargatanas',
+    line: [
+      'Next stop ->.*',
+    ],
+  },
+  {
+    name: 'Headpats Please',
+    server: 'Sargatanas',
+    line: [
+      'Next stop.*',
+    ],
+  },
+  {
+    name: 'Summer Nights',
+    server: 'Midgardsormr',
+    line: [
+      'Next Stop -.*',
+    ],
+  },
+  {
+    name: 'Lunae Goetia',
+    server: 'Jenova',
+    line: [
+      '.*Good hunter, our next mark can be found.*',
+    ],
+  },
+  {
+    name: 'Corri Kazuto',
+    server: 'Jenova',
+    line: [
+      'Next.*',
+    ],
+  },
+  {
+    name: 'Kasper Ghost',
+    server: 'Cactuar',
+    line: [
+      '.*Next stop.*',
+      'Hunt Train Final Mark',
+    ],
+  },
+  {
+    name: 'Zel Cheres',
+    server: 'Cactuar',
+    line: [
+      'next stop -->.*',
+    ],
+  },
+  {
+    name: 'Pand Cake',
+    server: 'Cactuar',
+    line: [
+      '.*Next Stop.*',
+      '.*Train final stop.*',
+    ],
+  },
+  {
+    name: 'Ray Leonhart',
+    server: 'Midgardsormr',
+    line: [
+      '.*A RANK FOUND at.*',
+    ],
+  },
+  {
+    name: 'Argo Vecti',
+    server: 'Gilgamesh',
+    line: [
+      '.*Rank.*spotted at.*',
+    ],
+  },
+  {
+    name: 'Yuki Yozora',
+    server: 'Faerie',
+    line: [
+      '.*Drippy Train next stop.*',
+    ],
+  },
+  {
+    name: 'Bear Esteria',
+    server: 'Jenova',
+    line: [
+      'Next Hunt Mark:.*',
+    ],
+  },
+  {
+    name: 'Babby Josuke',
+    server: 'Jenova',
+    line: [
+      'Surely nothing bad is.*',
+    ],
+  },
+  {
+    name: 'Osterby Aster',
+    server: 'Faerie',
+    line: [
+      'The train is going here, meow.*',
+    ],
+  },
+  {
+    name: 'Lulupi Lupi',
+    server: 'Faerie',
+    line: [
+      '.*Choo Choo.*(?:Calling all besties|FINAL STOP).*',
+    ],
+  },
+  {
+    name: 'Iveldar Zheurial',
+    server: 'Jenova',
+    line: [
+      'Next mark ->.*',
+    ],
+  },
+];
+
+// TODO: maybe track the last time this was run and suppress??
+const generateTrigger = (data) => {
+  return {
+    id: `Train ${data.name}`,
+    type: 'GameLog',
+    netRegex: NetRegexes.gameLog({
+      name: `${data.name}(?:${Regexes.anyOf(data.server)})?`,
+      line: data.line,
+      code: shoutCode,
+      capture: false
+    }),
+    sound: 'Long',
+  };
+};
+
 Options.Triggers.push({
   zoneId: huntZones,
-  triggers: [
-    {
-      id: 'Train Navi Mae',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Navi Mae',
-        line: 'SPIRIT TR.*LAG DEPARTING.*',
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Specter Saruu',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Specter Saruu',
-        line: [
-          'Choo Choo! Next stop.*',
-          '.*Train is coming to its last stop.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Lucienne Whitebloom',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Lucienne Whitebloom',
-        line: [
-          'Time to visit our friend at .*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Ouija Wanders',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Ouija Wanders',
-        line: [
-          'the scoundrel,.*',
-          'continues.*',
-          'will this tactless mob.*',
-          'nice A rank ya got there.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Aven Tilsaren',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Aven Tilsaren',
-        line: [
-          'Next mark spotted!.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Izana Zephyr',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Izana Zephyr(?:Midgardsormr)?',
-        line: [
-          '.*RELAY.*Hunt Found.*',
-          '.*Rank \\[.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Hershy Kist',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Hershy Kist(?:Faerie)?',
-        line: [
-          'Next stop!.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Scavell Tane',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Scavell Tane',
-        line: [
-          'Next Train stop.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Kiona Maraguld',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Kiona Maraguld',
-        line: [
-          'Hunt train next stop.*',
-          'Next mark spotted!.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Yayo Ouuh',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Yayo Ouuh',
-        line: [
-          '.*dorable target in need of hard patting.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Melisandre Stormclaw',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Melisandre Stormclaw',
-        line: [
-          'Hunt train next stop:.*',
-          'Hunt train last stop.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Mekeh\'zi Mhuqopi',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Mekeh\'zi Mhuqopi',
-        line: [
-          'Hunt Train FIRST STOP.*',
-          'Hunt Train NEXT STOP.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Sun Bun',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Sun Bun',
-        line: [
-          '.*Train:.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Over Haul',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Over Haul',
-        line: [
-          'Death looms over our next.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train John Choco',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'John Choco',
-        line: [
-          '.*Hunt Train going to.*',
-          '.*Hunt Train Last.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Tet Sisma',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Tet Sisma',
-        line: [
-          'This thing\'s still alive.*',
-          'It\'s been fun, but this is the last one.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Nefial Flauros',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Nefial Flauros(?:Faerie)?',
-        line: [
-          '.*Next Mark at.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Airenlei Saerel',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Airenlei Saerel(?:Siren|Sargatanas|Cactuar|Midgardsormr)?',
-        line: [
-          '.*Choo choo! Next stop.*',
-          '.*Train go Choo Choo!.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Emi Azayaka',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Emi Azayaka(?:Siren)?',
-        line: [
-          // This train is now leaving the station! First stop: Ultima Thule ( 15.9  , 26.0 )
-          'This train is now leaving the station.*',
-          'Choo choo! Next stop:.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Vashet Saicere',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Vashet Saicere(?:Siren)?',
-        line: [
-          '.*Next stop.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Okii Dokii',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Okii Dokii(?:Sargatanas)?',
-        line: [
-          'Next stop ->.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Headpats Please',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Headpats Please(?:Sargatanas)?',
-        line: [
-          'Next stop.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Summer Nights',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Summer Nights(?:Midgardsormr)?',
-        line: [
-          'Next Stop -.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Lunae Goetia',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Lunae Goetia(?:Jenova)?',
-        line: [
-          '.*Good hunter, our next mark can be found.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Corri Kazuto',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Corri Kazuto(?:Jenova)?',
-        line: [
-          'Next.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Kasper Ghost',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Kasper Ghost(?:Cactuar)?',
-        line: [
-          '.*Next stop.*',
-          'Hunt Train Final Mark',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Zel Cheres',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Zel Cheres(?:Cactuar)?',
-        line: [
-          'next stop -->.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Pand Cake',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Pand Cake(?:Cactuar)?',
-        line: [
-          '.*Next Stop.*',
-          '.*Train final stop.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Ray Leonhart',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Ray Leonhart(?:Midgardsormr)?',
-        line: [
-          '.*A RANK FOUND at.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Argo Vecti',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Argo Vecti(?:Gilgamesh)?',
-        line: [
-          '.*Rank.*spotted at.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Yuki Yozora',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Yuki Yozora(?:Faerie)?',
-        line: [
-          '.*Drippy Train next stop.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Bear Esteria',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Bear Esteria',
-        line: [
-          'Next Hunt Mark:.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Babby Josuke',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Babby Josuke',
-        line: [
-          'Surely nothing bad is.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Osterby Aster',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Osterby Aster(?:Faerie)?',
-        line: [
-          'The train is going here, meow.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Lulupi Lupi',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Lulupi Lupi(?:Faerie)?',
-        line: [
-          '.*Choo Choo.*(?:Calling all besties|FINAL STOP).*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-    {
-      id: 'Train Iveldar Zheurial',
-      type: 'GameLog',
-      netRegex: NetRegexes.gameLog({
-        name: 'Iveldar Zheurial',
-        line: [
-          'Next mark ->.*',
-        ],
-        code: shoutCode,
-        capture: false,
-      }),
-      sound: 'Long',
-    },
-  ],
+  triggers: conductors.map((x) => generateTrigger(x)),
 });
