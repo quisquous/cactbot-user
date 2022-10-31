@@ -251,7 +251,7 @@ Options.Triggers.push({
       id: 'Train Airenlei Saerel',
       type: 'GameLog',
       netRegex: NetRegexes.gameLog({
-        name: 'Airenlei Saerel(?:Siren|Sargatanas)?',
+        name: 'Airenlei Saerel(?:Siren|Sargatanas|Cactuar|Midgardsormr)?',
         line: [
           '.*Choo choo! Next stop.*',
           '.*Train go Choo Choo!.*',
