@@ -282,6 +282,14 @@ const conductors = [
       'Next mark ->.*',
     ],
   },
+  {
+    name: 'Louvain Eventide',
+    server: 'Sargatanas',
+    line: [
+      // A rank HQ
+      '  .*',
+    ],
+  },
 ];
 
 // TODO: maybe track the last time this was run and suppress??
@@ -293,7 +301,7 @@ const generateTrigger = (data) => {
       name: `${data.name}(?:${Regexes.anyOf(data.server)})?`,
       line: data.line,
       code: shoutCode,
-      capture: false
+      capture: false,
     }),
     sound: 'Long',
   };
