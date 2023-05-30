@@ -36,6 +36,7 @@ const conductors = [
     server: 'Jenova',
     line: [
       'Time to visit our friend at .*',
+      'Choo choo! Hunt train\'s.*',
     ],
   },
   {
@@ -201,6 +202,8 @@ const conductors = [
     server: 'Jenova',
     line: [
       'Next.*',
+      // FINAL Stop on the Kazu EXPRESS
+      ' Stop on the ',
     ],
   },
   {
@@ -288,6 +291,35 @@ const conductors = [
     line: [
       // A rank HQ
       '  .*',
+    ],
+  },
+  {
+    name: 'Arisu Kuma',
+    server: 'Jenova',
+    line: [
+      'Next Train stop at.*',
+    ],
+  },
+  {
+    name: 'System Senpai',
+    server: 'Halicarnassus',
+    line: [
+      'NEXT TARGET.*',
+    ],
+  },
+  {
+    name: 'Othelia Emeraldsong',
+    server: 'Adamantoise',
+    line: [
+      'First stop>>>>.*',
+      '.*Next stop!.*',
+    ],
+  },
+  {
+    name: 'Velvet Lalay\'ra',
+    server: 'Siren',
+    line: [
+      'Next stop on the.*',
     ],
   },
 ];

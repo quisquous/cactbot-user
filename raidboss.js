@@ -25,6 +25,12 @@ Options.PlayerNicks = {
   'Shisui Miwa': 'Derp',
   'Goshu Tsukinoe': 'goshu',
   'Goshu Banhi': 'goshu',
+  'Hoochi Coochie': 'Kev',
+  'Heal Er': 'Glory',
+  'Phoebe Blu': 'Kev',
+  'Leshwi Shanay-im': 'Min',
+  'Wind-up Mizzen': 'Mizzen',
+  'Jujube Jube': 'Pap',
 };
 
 // Prepend emoji to all added timeline events to make them stand out.
